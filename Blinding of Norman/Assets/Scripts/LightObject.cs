@@ -5,9 +5,12 @@ using UnityEngine;
 public class LightObject : MonoBehaviour
 {
     // Start is called before the first frame update
+    Transform transform;
     GameObject player;
     void Start()
     {
+        transform = GetComponent<Transform>();
+        transform.localScale = new Vector3(Random.Range(10, 30), Random.Range(10, 30), 0);
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -16,18 +19,6 @@ public class LightObject : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter2D(Collider2D col) {
-       Debug.Log("hooray");
-        if(col.gameObject.tag == "Player")
-        { 
-            
-            player.gameObject.GetComponent<PlayerController>().SetLight(true);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D col) {
-        if(col.gameObject.tag == "Player")
-        {
-            player.gameObject.GetComponent<PlayerController>().SetLight(false);
-        }
-    }
+
+
 }
