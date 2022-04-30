@@ -10,10 +10,12 @@ public class RoomStuffer : MonoBehaviour
     public GameObject doorBlocks;
     GameObject myKey;
     public int enemies2Spawn, lights2Spawn, rnd;
+    int spawnChest;
 
     void Start()
     {
         //SpawnThings();
+        spawnChest = Random.Range(1, 10);
     }
 
     // Update is called once per frame
@@ -29,6 +31,13 @@ public class RoomStuffer : MonoBehaviour
     }
     public void SpawnThings()
     {
+        if(spawnChest < 4)
+        {
+            rnd = (int)Random.Range(0, positions.Length);
+            Instantiate(chest, positions[rnd].position, Quaternion.identity);
+            Instantiate(light, positions[rnd].position, Quaternion.identity);
+
+        }
         doorBlocks.SetActive(true);
         for(int i = enemies2Spawn; i >0; i--)
         {

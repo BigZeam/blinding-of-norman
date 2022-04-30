@@ -96,7 +96,8 @@ public class EnemyController : MonoBehaviour
     //Coroutine
     IEnumerator Stun()
     {
-        Debug.Log("stunned");
+        speed = 0;
+        //Debug.Log("stunned");
         yield return new WaitForSeconds(2f);
         curBehavior = Behavior.Follow;
     }

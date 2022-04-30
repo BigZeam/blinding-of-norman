@@ -593,7 +593,7 @@ MonoBehaviour:
   - {fileID: 7232674742447861797}
   - {fileID: 7232674743190191441}
   - {fileID: 7232674743817004709}
-  chest: {fileID: 0}
+  chest: {fileID: 1545261468264318923, guid: d1b7f871a670f8846a8a96075181ead1, type: 3}
   enemy: {fileID: 8213676128680694307, guid: 1b4a492cbc0700f41b96009c9f52e79a, type: 3}
   key: {fileID: 3609087904836204996, guid: 029869b44d86af24087f1aaf2b1457dd, type: 3}
   light: {fileID: 4877470418537172452, guid: 506c4490b723c7a4c80a04abf68083a6, type: 3}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,9 +15,14 @@ public class PlayerController : MonoBehaviour
     public float attackRange;
     public int damage = 5;
     public int hitpoints = 6;
+    public int level = 1, curXP;
+
+    //ui vars
+    public Text levelText, healthText, xpText;
+    public GameObject gameOverPanel;
 
     private float timeBtwAttack;
-    
+    private int maxHP;
 
     Rigidbody2D rb;
     // Start is called before the first frame update
@@ -30,6 +36,8 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
         Attack();
+        ShowUI();
+        CheckLevels();
     }
 
 
@@ -40,6 +48,24 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         rb.velocity = new Vector3(horizontal * speed, vertical * speed, 0) * Time.deltaTime;
+    }
+    void CheckLevels()
+    {
+        maxHP = 10 * level;
+        if(curXP > (level * level) + 10)
+        {
+            level++;
+            curXP = 0;
+        }
+
+        if(hitpoints <= 0)
+        {
+            gameOverPanel.SetActive(true);
+        }
+    }
+    void CollectXP(int xp)
+    {
+        curXP += xp;
     }
     void Attack()
     {
@@ -82,6 +108,22 @@ public class PlayerController : MonoBehaviour
        {
            col.gameObject.GetComponent<KeyScript>().MajorKeyAlert();
        }
+       if(col.gameObject.tag == "XP")
+       {
+            curXP += col.gameObject.GetComponent<ExperienceOrb>().GetValue();
+            Destroy(col.gameObject);
+       }
+       if(col.gameObject.tag == "Health")
+       {
+            hitpoints += col.gameObject.GetComponent<Health>().GetValue();
+            if(hitpoints > maxHP)
+                hitpoints = maxHP;
+            Destroy(col.gameObject);
+       }
+       if(col.gameObject.tag == "Chest")
+       {
+           col.gameObject.GetComponent<Chest>().Open();
+       }
     }
     private void OnTriggerExit2D(Collider2D col) {
         if(col.gameObject.tag == "Light")
@@ -90,6 +132,12 @@ public class PlayerController : MonoBehaviour
        }
     }
 
+    public void ShowUI()
+    {
+        levelText.text = "Level " + level;
+        healthText.text = "Health " + hitpoints;
+        xpText.text = "XP " + curXP;
+    }
     //Setters
     public void SetLight(bool light)
     {

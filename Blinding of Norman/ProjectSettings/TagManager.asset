@@ -13,6 +13,9 @@ TagManager:
   - Walls
   - EnterRoom
   - Key
+  - XP
+  - Chest
+  - Health
   layers:
   - Default
   - TransparentFX
