@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float startTimeBtwAttack;
 
     public Transform attackPos;
+    public Transform[] positions;
     public LayerMask whatIsEnemies;
     public float attackRange;
     public int damage = 5;
@@ -69,11 +70,13 @@ public class PlayerController : MonoBehaviour
     }
     void Attack()
     {
+        damage = level * 5;
         if(timeBtwAttack <=0)
         {
-            if(Input.GetKey(KeyCode.L) && inTheLight)
+            if(Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K)||Input.GetKey(KeyCode.J) && inTheLight)
             {
                 //Debug.Log("Trying to attack");
+                SetAttackPos();
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for(int i = 0; i < enemiesToDamage.Length; i++)
                 {
@@ -85,6 +88,25 @@ public class PlayerController : MonoBehaviour
         else 
         {
             timeBtwAttack -=Time.deltaTime;
+        }
+    }
+    public void SetAttackPos()
+    {
+        if(Input.GetKey(KeyCode.I))
+        {
+            attackPos = positions[0];
+        }
+        if(Input.GetKey(KeyCode.L))
+        {
+            attackPos = positions[1];
+        }
+        if(Input.GetKey(KeyCode.K))
+        {
+            attackPos = positions[2];
+        }
+        if(Input.GetKey(KeyCode.J))
+        {
+            attackPos = positions[3];
         }
     }
     public void TakeDamage(int damage)

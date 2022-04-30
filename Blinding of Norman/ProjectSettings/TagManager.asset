@@ -16,6 +16,8 @@ TagManager:
   - XP
   - Chest
   - Health
+  - RoomStuffer
+  - Boss
   layers:
   - Default
   - TransparentFX

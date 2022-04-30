@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    enum Behavior {Still, Follow, Stunned};
+    enum Behavior {Still, Follow, Stunned, boss};
 
     GameObject player;
     Behavior curBehavior;
@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     float speed = 3;
     public int hitpoints = 10, damage = 2;
     float starttimeBtwStun = 2f, timeBtwStun;
+    bool isNormal = true;
 
     void Start()
     {
@@ -27,6 +28,12 @@ public class EnemyController : MonoBehaviour
     {
         CalculateAction();
         DeadCheck();
+    }
+    public void BossUp()
+    {
+        isNormal = false;
+        hitpoints = 100;
+        curBehavior = Behavior.boss;
     }
     private void CalculateAction()
     {
@@ -60,16 +67,22 @@ public class EnemyController : MonoBehaviour
     {
         if(hitpoints <= 0)
         {
+            if(!isNormal)
+                Debug.Log("You win");
             Destroy(this.gameObject);
         }
     }
     private void FollowPlayer()
     {
-        Vector3 direction = player.gameObject.GetComponent<Transform>().position - transform.position;
-        direction.Normalize();
-        movement = direction;
+        if(isNormal)
+        {
+            Vector3 direction = player.gameObject.GetComponent<Transform>().position - transform.position;
+            direction.Normalize();
+            movement = direction;
 
-        rb.MovePosition((Vector2)transform.position + (movement * speed * Time.deltaTime));
+            rb.MovePosition((Vector2)transform.position + (movement * speed * Time.deltaTime));
+        }
+        
     }
 
     public void TakeDamage(int damage)
@@ -91,6 +104,11 @@ public class EnemyController : MonoBehaviour
     public void SetAttack(bool b)
     {
         canAttack = b;
+    }
+
+    public int GetHp()
+    {
+        return hitpoints;
     }
 
     //Coroutine
