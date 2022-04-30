@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     enum Behavior {Still, Follow, Stunned, boss};
 
-    GameObject player;
+    public GameObject player, orb;
     Behavior curBehavior;
     Vector2 movement;
     Rigidbody2D rb;
@@ -69,6 +69,9 @@ public class EnemyController : MonoBehaviour
         {
             if(!isNormal)
                 Debug.Log("You win");
+            
+            if(isNormal)
+                Instantiate(orb, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }

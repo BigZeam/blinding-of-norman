@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0714cfb9d844f489dd1ee2d2bf9e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  orb: {fileID: 5193695903495406936, guid: c2a330ece450b54499eb9c2111f8ae9d, type: 3}
   hitpoints: 10
   damage: 2
 --- !u!61 &8213676128680694316

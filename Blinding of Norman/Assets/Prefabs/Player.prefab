@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1315ad0a54efeb846b7ec40767ed0a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 250
   inTheLight: 0
   startTimeBtwAttack: 0.75
   attackPos: {fileID: 833456261}
@@ -400,6 +400,7 @@ MonoBehaviour:
   hitpoints: 10
   level: 1
   curXP: 0
+  sig: {fileID: 2727775260574325315, guid: 800e616233b091941a4a00bc93ebebd1, type: 3}
   levelText: {fileID: 0}
   healthText: {fileID: 0}
   xpText: {fileID: 0}

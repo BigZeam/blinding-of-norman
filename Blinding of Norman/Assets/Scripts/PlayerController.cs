@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public int damage = 5;
     public int hitpoints = 6;
     public int level = 1, curXP;
+    public GameObject sig;
 
     //ui vars
     public Text levelText, healthText, xpText;
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
         if(curXP > (level * level) + 10)
         {
             level++;
+            hitpoints+=5;
             curXP = 0;
         }
 
@@ -77,6 +79,7 @@ public class PlayerController : MonoBehaviour
             {
                 //Debug.Log("Trying to attack");
                 SetAttackPos();
+                Instantiate(sig, attackPos.position, Quaternion.identity);
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for(int i = 0; i < enemiesToDamage.Length; i++)
                 {
