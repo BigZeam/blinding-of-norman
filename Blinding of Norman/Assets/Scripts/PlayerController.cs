@@ -74,6 +74,14 @@ public class PlayerController : MonoBehaviour
        {
            SetLight(true);
        }
+       if(col.gameObject.tag == "EnterRoom")
+       {
+           col.gameObject.GetComponent<RoomEnter>().EnteredRoom();
+       }
+       if(col.gameObject.tag == "Key")
+       {
+           col.gameObject.GetComponent<KeyScript>().MajorKeyAlert();
+       }
     }
     private void OnTriggerExit2D(Collider2D col) {
         if(col.gameObject.tag == "Light")

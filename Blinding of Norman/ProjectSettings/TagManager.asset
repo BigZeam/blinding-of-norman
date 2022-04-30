@@ -11,6 +11,8 @@ TagManager:
   - Closed
   - Door
   - Walls
+  - EnterRoom
+  - Key
   layers:
   - Default
   - TransparentFX
