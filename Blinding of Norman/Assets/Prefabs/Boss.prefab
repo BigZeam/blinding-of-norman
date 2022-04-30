@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800453005832419438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.061, y: 0, z: 0}
+  m_LocalPosition: {x: 0.421, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 800453007399216785}
@@ -74,7 +74,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00020885468, y: -0.31872654}
+  m_Offset: {x: 0.2502687, y: 0.18865263}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -85,7 +85,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.438999, y: 4.7618513}
+  m_Size: {x: 3.7962036, y: 2.2827585}
   m_EdgeRadius: 0
 --- !u!1 &800453007206867760
 GameObject:
@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800453007206867760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.664, y: 0, z: 0}
+  m_LocalPosition: {x: -0.534, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 800453007399216785}
@@ -178,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 800453007608583872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.1, y: 0.59, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 800453007399216785}
   - {fileID: 800453005935510331}
@@ -223,7 +223,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5220012689467389403, guid: 176419cec72f91e45ba1af3f6d124d1a,
+  m_Sprite: {fileID: 7343313734588514256, guid: aa26986d0dd150a46b814cf0aa66382c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -248,18 +248,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15755558, y: 0.25268352}
+  m_Offset: {x: 0.017225385, y: -0.000032275915}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 0.4, y: 0.26}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3055005, y: 2.054633}
+  m_Size: {x: 0.33919317, y: 0.2679397}
   m_EdgeRadius: 0
 --- !u!114 &800453007608583875
 MonoBehaviour:
@@ -290,5 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0714cfb9d844f489dd1ee2d2bf9e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  orb: {fileID: 0}
   hitpoints: 10
   damage: 2

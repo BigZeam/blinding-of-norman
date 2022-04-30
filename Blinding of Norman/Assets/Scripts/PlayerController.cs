@@ -159,9 +159,9 @@ public class PlayerController : MonoBehaviour
 
     public void ShowUI()
     {
-        levelText.text = "Level " + level;
+        levelText.text = "Level ";
         healthText.text = "Health " + hitpoints;
-        xpText.text = "XP " + curXP;
+        xpText.text = "XP " + curXP + " / " + ((level * level) + 10);
     }
     //Setters
     public void SetLight(bool light)
